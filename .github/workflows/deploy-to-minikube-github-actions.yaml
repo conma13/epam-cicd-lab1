@@ -22,6 +22,8 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f k8s-node-app.yaml
+    - name: Wait before next step
+      run: sleep 60
     - name: Check pod status
       run:
         kubectl get pods -l app=nodejs-app -o wide
